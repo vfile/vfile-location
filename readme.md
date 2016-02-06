@@ -36,11 +36,15 @@ var position = ranges.toPosition(offset);
 Yields:
 
 ```txt
--1
+10
 ```
 
 ```json
-{}
+{
+  "line": 3,
+  "column": 3,
+  "offset": 10
+}
 ```
 
 ## API

@@ -87,6 +87,15 @@ test('range()', function (t) {
             'should return an offset (#2)'
         );
 
+        st.equals(
+            ranges.toOffset({
+                'line': 3,
+                'column': 4
+            }),
+            11,
+            'should return an offset (#3)'
+        );
+
         st.end();
     });
 

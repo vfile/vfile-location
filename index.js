@@ -55,7 +55,7 @@ function positionToOffsetFactory(indices) {
         var line = position && position.line;
         var column = position && position.column;
 
-        if (!isNaN(line) && !isNaN(column) && line in indices) {
+        if (!isNaN(line) && !isNaN(column) && line - 1 in indices) {
             return ((indices[line - 2] || 0) + column - 1) || 0;
         }
 
