@@ -1,6 +1,6 @@
 {
   "name": "unist-range",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Convert between positions (line and column-based) and offsets (range-based) locations in unist",
   "license": "MIT",
   "keywords": [
