@@ -2,6 +2,11 @@
 
 <!--lint disable no-multiple-toplevel-headings -->
 
+2.0.0 / 2016-02-07
+==================
+
+*   Rename from `unist-range` to `vfile-location` (2e90de2)
+
 1.0.1 / 2016-02-06
 ==================
 
