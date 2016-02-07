@@ -19,7 +19,7 @@ deploy:
     api_key:
       secure: n9qmrfu9VP1Hhi3t1lfxEzzePrB9ksTOqM437i5LDFELfjRiix5tKdD9N9TIW741Vm9zHUNMqtxGxeDBVyUmGUTmapslavX4VpPEuLSWR19uF0q40ETCh6XCRe4MHqnqHf/gFgEbA6kzxV3HscJoITkQ8l14KIvJ9ndYjo69CefGpwMgWZM2z+4E9ZdF5rk0HbwIyE3psKuplWZdcpl+oyHkLDCbeo25yG7hUqS2gNmjvL55rPuuteubVpJISSBBvXA3pzTjC9Qt6Z50r75U2RqmUObURY1f+ybTKcNEM87/hfMCAp4YaBpTExstxo+ktvFMAQQ2qCeSMm/HxDehvwReTiPsUmYi4FKYHjK8zSaOThSSn6T+T0aZCOlXhd7WVPpOCURPXaTD7MyqAqkK0G5O5rdqFXcft0Q1HCexRLsN63s/KfwqXdVX2XA37GZpemmHu4ZOECRZutizQPC6Ixba0ijzpMPhhlXX8mshL8BPZMAetRtzPFjp71WpfLpcTKAIMXssYp5hnPTNciVoEyFMDo1bPozupYSwaopJU8nM2dmW3tq2mtg3QGJKDerUlPkw6dgYWarttL0ecNcISzL01X5++dupvERwGzfwBIbBeVcwm6bg4bF0oVzlXTpHcjnlk5W4T4z0lhRtkzoAtc7ELIpL5QrBmInynJKnfzM=
     file:
-      - "unist-range.js"
-      - "unist-range.min.js"
+      - "vfile-location.js"
+      - "vfile-location.min.js"
     on:
       tags: true

@@ -1,17 +1,17 @@
-# unist-range [![Build Status][travis-badge]][travis] [![Coverage Status][codecov-badge]][codecov]
+# vfile-location [![Build Status][travis-badge]][travis] [![Coverage Status][codecov-badge]][codecov]
 
 Convert between positions (line and column-based) and offsets
-(range-based) locations in [unist][].
+(range-based) locations in a [virtual file][vfile].
 
 ## Installation
 
 [npm][npm-install]:
 
 ```bash
-npm install unist-range
+npm install vfile-location
 ```
 
-**unist-range** is also available as an AMD, CommonJS, and globals
+**vfile-location** is also available as an AMD, CommonJS, and globals
 module, [uncompressed and compressed][releases].
 
 ## Usage
@@ -19,18 +19,19 @@ module, [uncompressed and compressed][releases].
 Dependencies:
 
 ```javascript
-var range = require('unist-range');
-var ranges = range('foo\nbar\nbaz');
+var vfile = require('vfile');
+var vfileLocation = require('vfile-location');
+var location = vfileLocation(vfile('foo\nbar\nbaz'));
 ```
 
 Using the methods:
 
 ```javascript
-var offset = ranges.toOffset({
+var offset = location.toOffset({
     'line': 3,
     'column': 3
 });
-var position = ranges.toPosition(offset);
+var position = location.toPosition(offset);
 ```
 
 Yields:
@@ -49,14 +50,14 @@ Yields:
 
 ## API
 
-### `range = rangeFactory(doc)`
+### `location = vfileLocation(doc)`
 
 Partially apply the returned functions with `doc` or `file`.
 
 **Signatures**:
 
-*   `range = rangeFactory(file)`;
-*   `range = rangeFactory(doc)`.
+*   `location = vfileLocation(file)`;
+*   `location = vfileLocation(doc)`.
 
 **Parameters**:
 
@@ -68,7 +69,7 @@ Partially apply the returned functions with `doc` or `file`.
 *   `toOffset` ([`Function`][to-offset]);
 *   `toPosition` ([`Function`][to-position]).
 
-### `range.toOffset(position)`
+### `location.toOffset(position)`
 
 Get the `offset` for a line and column-based `position` in the
 bound file.
@@ -79,7 +80,7 @@ bound file.
 
 **Returns**: `number`. `-1` when given invalid or out of bounds input.
 
-### `range.toPosition(offset)`
+### `location.toPosition(offset)`
 
 Get the line and column-based `position` for `offset` in the bound
 file.
@@ -97,28 +98,26 @@ invalid or out of bounds input.
 
 <!-- Definitions -->
 
-[travis-badge]: https://img.shields.io/travis/wooorm/unist-range.svg
+[travis-badge]: https://img.shields.io/travis/wooorm/vfile-location.svg
 
-[travis]: https://travis-ci.org/wooorm/unist-range
+[travis]: https://travis-ci.org/wooorm/vfile-location
 
-[codecov-badge]: https://img.shields.io/codecov/c/github/wooorm/unist-range.svg
+[codecov-badge]: https://img.shields.io/codecov/c/github/wooorm/vfile-location.svg
 
-[codecov]: https://codecov.io/github/wooorm/unist-range
+[codecov]: https://codecov.io/github/wooorm/vfile-location
 
 [npm-install]: https://docs.npmjs.com/cli/install
 
-[releases]: https://github.com/wooorm/unist-range/releases
+[releases]: https://github.com/wooorm/vfile-location/releases
 
 [license]: LICENSE
 
 [author]: http://wooorm.com
 
-[unist]: https://github.com/wooorm/unist
-
 [position]: https://github.com/wooorm/unist#position
 
 [vfile]: https://github.com/wooorm/vfile
 
-[to-offset]: #rangetooffsetposition
+[to-offset]: #locationtooffsetposition
 
-[to-position]: #rangetopositionoffset
+[to-position]: #locationtopositionoffset

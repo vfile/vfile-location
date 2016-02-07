@@ -2,8 +2,8 @@
   "excludeFiles": [
     "coverage/",
     "node_modules/",
-    "unist-range.js",
-    "unist-range.min.js"
+    "vfile-location.js",
+    "vfile-location.min.js"
   ],
   "preset": "yandex",
   "requireQuotedKeysInObjects": true,

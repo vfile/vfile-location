@@ -2,7 +2,7 @@
  * @author Titus Wormer
  * @copyright 2016 Titus Wormer
  * @license MIT
- * @module unist:range
+ * @module vfile:location
  * @fileoverview Convert between positions (line and
  *   column-based) and offsets (range-based) locations.
  */

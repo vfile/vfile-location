@@ -1,13 +1,14 @@
 // Dependencies:
-var range = require('./index.js');
-var ranges = range('foo\nbar\nbaz');
+var vfile = require('vfile');
+var vfileLocation = require('./index.js');
+var location = vfileLocation(vfile('foo\nbar\nbaz'));
 
 // Using the methods:
-var offset = ranges.toOffset({
+var offset = location.toOffset({
     'line': 3,
     'column': 3
 });
-var position = ranges.toPosition(offset);
+var position = location.toPosition(offset);
 
 // Yields:
 console.log('txt', String(offset));

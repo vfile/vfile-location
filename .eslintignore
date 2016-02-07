@@ -1,4 +1,4 @@
 coverage/
 example.js
-unist-range.js
-unist-range.min.js
+vfile-location.js
+vfile-location.min.js

@@ -1,7 +1,7 @@
 {
-  "name": "unist-range",
+  "name": "vfile-location",
   "version": "1.0.1",
-  "description": "Convert between positions (line and column-based) and offsets (range-based) locations in unist",
+  "description": "Convert between positions (line and column-based) and offsets (range-based) locations in a virtual file",
   "license": "MIT",
   "keywords": [
     "remark",
@@ -15,9 +15,9 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/wooorm/unist-range.git"
+    "url": "https://github.com/wooorm/vfile-location.git"
   },
-  "bugs": "https://github.com/wooorm/unist-range/issues",
+  "bugs": "https://github.com/wooorm/vfile-location/issues",
   "author": "Titus Wormer <tituswormer@gmail.com> (http://wooorm.com)",
   "dependencies": {},
   "devDependencies": {
@@ -41,8 +41,8 @@
   },
   "scripts": {
     "build-md": "remark . --quiet --frail",
-    "build-bundle": "browserify index.js --bare -s unistRange > unist-range.js",
-    "build-mangle": "esmangle unist-range.js > unist-range.min.js",
+    "build-bundle": "browserify index.js --bare -s vfileLocation > vfile-location.js",
+    "build-mangle": "esmangle vfile-location.js > vfile-location.min.js",
     "build": "npm run build-md && npm run build-bundle && npm run build-mangle",
     "lint-api": "eslint .",
     "lint-style": "jscs --reporter inline .",

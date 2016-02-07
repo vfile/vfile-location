@@ -2,8 +2,8 @@
  * @author Titus Wormer
  * @copyright 2016 Titus Wormer
  * @license MIT
- * @module unist:range
- * @fileoverview Test suite for `unist-range`.
+ * @module vfile:location
+ * @fileoverview Test suite for `vfile-location`.
  */
 
 'use strict';
@@ -16,52 +16,52 @@
 
 var test = require('tape');
 var vfile = require('vfile');
-var range = require('./index.js');
+var vfileLocation = require('./index.js');
 
 /*
  * Tests.
  */
 
-test('range()', function (t) {
-    var ranges = range('');
+test('vfileLocation()', function (t) {
+    var location = vfileLocation('');
 
     t.equals(
-        typeof ranges.toOffset,
+        typeof location.toOffset,
         'function',
         'should expose `toOffset` for `doc`'
     );
 
     t.equals(
-        typeof ranges.toOffset,
+        typeof location.toOffset,
         'function',
         'should expose `toPosition` for `doc`'
     );
 
-    ranges = range(vfile());
+    location = vfileLocation(vfile());
 
     t.equals(
-        typeof ranges.toOffset,
+        typeof location.toOffset,
         'function',
         'should expose `toOffset` for `file`'
     );
 
     t.equals(
-        typeof ranges.toOffset,
+        typeof location.toOffset,
         'function',
         'should expose `toPosition` for `file`'
     );
 
-    t.test('range.toOffset(position)', function (st) {
-        var ranges = range('foo\nbar\nbaz');
+    t.test('location.toOffset(position)', function (st) {
+        var location = vfileLocation('foo\nbar\nbaz');
 
         st.equals(
-            ranges.toOffset({}),
+            location.toOffset({}),
             -1,
             'should return `-1` for invalid input'
         );
 
         st.equals(
-            ranges.toOffset({
+            location.toOffset({
                 'line': 4,
                 'column': 2
             }),
@@ -70,7 +70,7 @@ test('range()', function (t) {
         );
 
         st.equals(
-            ranges.toOffset({
+            location.toOffset({
                 'line': 2,
                 'column': 2
             }),
@@ -79,7 +79,7 @@ test('range()', function (t) {
         );
 
         st.equals(
-            ranges.toOffset({
+            location.toOffset({
                 'line': 1,
                 'column': 1
             }),
@@ -88,7 +88,7 @@ test('range()', function (t) {
         );
 
         st.equals(
-            ranges.toOffset({
+            location.toOffset({
                 'line': 3,
                 'column': 4
             }),
@@ -99,23 +99,23 @@ test('range()', function (t) {
         st.end();
     });
 
-    t.test('range.toPosition(offset)', function (st) {
-        var ranges = range('foo\nbar\nbaz');
+    t.test('location.toPosition(offset)', function (st) {
+        var location = vfileLocation('foo\nbar\nbaz');
 
         st.deepEquals(
-            ranges.toPosition(-1),
+            location.toPosition(-1),
             {},
             'should return an empty object for invalid input'
         );
 
         st.deepEquals(
-            ranges.toPosition(12),
+            location.toPosition(12),
             {},
             'should return an empty object for out of bounds input'
         );
 
         st.deepEquals(
-            ranges.toPosition(0),
+            location.toPosition(0),
             {
                 'line': 1,
                 'column': 1,
@@ -125,7 +125,7 @@ test('range()', function (t) {
         );
 
         st.deepEquals(
-            ranges.toPosition(11),
+            location.toPosition(11),
             {
                 'line': 3,
                 'column': 4,
