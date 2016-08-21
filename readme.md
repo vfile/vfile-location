@@ -11,36 +11,21 @@ Convert between positions (line and column-based) and offsets
 npm install vfile-location
 ```
 
-**vfile-location** is also available as an AMD, CommonJS, and globals
-module, [uncompressed and compressed][releases].
-
 ## Usage
 
-Dependencies:
-
-```javascript
+```js
 var vfile = require('vfile');
 var vfileLocation = require('vfile-location');
 var location = vfileLocation(vfile('foo\nbar\nbaz'));
-```
 
-Using the methods:
-
-```javascript
-var offset = location.toOffset({
-    'line': 3,
-    'column': 3
-});
+var offset = location.toOffset({line: 3, column: 3});
 var position = location.toPosition(offset);
 ```
 
 Yields:
 
-```txt
+```js
 10
-```
-
-```json
 {
   "line": 3,
   "column": 3,
@@ -52,45 +37,22 @@ Yields:
 
 ### `location = vfileLocation(doc)`
 
-Partially apply the returned functions with `doc` or `file`.
+Get transform functions for the given `doc` (`string`) or
+[`file`][vfile].
 
-**Signatures**:
-
-*   `location = vfileLocation(file)`;
-*   `location = vfileLocation(doc)`.
-
-**Parameters**:
-
-*   `file` ([`VFile`][vfile]);
-*   `doc` (`string`).
-
-**Returns**: `Object`:
-
-*   `toOffset` ([`Function`][to-offset]);
-*   `toPosition` ([`Function`][to-position]).
+Returns an object with [`toOffset`][to-offset] and
+[`toPosition`][to-position].
 
 ### `location.toOffset(position)`
 
-Get the `offset` for a line and column-based `position` in the
-bound file.
-
-**Parameters**:
-
-*   `position` ([`Position`][position]).
-
-**Returns**: `number`. `-1` when given invalid or out of bounds input.
+Get the `offset` (`number`) for a line and column-based
+[`position`][position] in the bound file.  Returns `-1`
+when given invalid or out of bounds input.
 
 ### `location.toPosition(offset)`
 
-Get the line and column-based `position` for `offset` in the bound
-file.
-
-**Parameters**:
-
-*   `offset` (`number`).
-
-**Returns**: [`Position`][position]. An empty object when given
-invalid or out of bounds input.
+Get the line and column-based [`position`][position] for `offset` in
+the bound file.
 
 ## License
 
@@ -108,16 +70,14 @@ invalid or out of bounds input.
 
 [npm-install]: https://docs.npmjs.com/cli/install
 
-[releases]: https://github.com/wooorm/vfile-location/releases
-
 [license]: LICENSE
 
 [author]: http://wooorm.com
-
-[position]: https://github.com/wooorm/unist#position
 
 [vfile]: https://github.com/wooorm/vfile
 
 [to-offset]: #locationtooffsetposition
 
 [to-position]: #locationtopositionoffset
+
+[position]: https://github.com/wooorm/unist#position
