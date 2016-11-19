@@ -5,7 +5,7 @@ Convert between positions (line and column-based) and offsets
 
 ## Installation
 
-[npm][npm-install]:
+[npm][]:
 
 ```bash
 npm install vfile-location
@@ -18,19 +18,8 @@ var vfile = require('vfile');
 var vfileLocation = require('vfile-location');
 var location = vfileLocation(vfile('foo\nbar\nbaz'));
 
-var offset = location.toOffset({line: 3, column: 3});
-var position = location.toPosition(offset);
-```
-
-Yields:
-
-```js
-10
-{
-  "line": 3,
-  "column": 3,
-  "offset": 10
-}
+location.toOffset({line: 3, column: 3}); //=> 10
+location.toPosition(offset); //=> {line: 3, column: 3, offset: 10}
 ```
 
 ## API
@@ -68,7 +57,7 @@ the bound file.
 
 [codecov]: https://codecov.io/github/wooorm/vfile-location
 
-[npm-install]: https://docs.npmjs.com/cli/install
+[npm]: https://docs.npmjs.com/cli/install
 
 [license]: LICENSE
 
