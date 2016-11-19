@@ -1,19 +1,9 @@
-/**
- * @author Titus Wormer
- * @copyright 2016 Titus Wormer
- * @license MIT
- * @module
- * @fileoverview Test suite for `vfile-location`.
- */
-
 'use strict';
 
-/* Dependencies. */
 var test = require('tape');
 var vfile = require('vfile');
 var vfileLocation = require('./');
 
-/* Tests. */
 test('location()', function (t) {
   var location = vfileLocation('');
 
