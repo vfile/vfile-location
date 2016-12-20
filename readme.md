@@ -49,13 +49,13 @@ the bound file.
 
 <!-- Definitions -->
 
-[travis-badge]: https://img.shields.io/travis/wooorm/vfile-location.svg
+[travis-badge]: https://img.shields.io/travis/vfile/vfile-location.svg
 
-[travis]: https://travis-ci.org/wooorm/vfile-location
+[travis]: https://travis-ci.org/vfile/vfile-location
 
-[codecov-badge]: https://img.shields.io/codecov/c/github/wooorm/vfile-location.svg
+[codecov-badge]: https://img.shields.io/codecov/c/github/vfile/vfile-location.svg
 
-[codecov]: https://codecov.io/github/wooorm/vfile-location
+[codecov]: https://codecov.io/github/vfile/vfile-location
 
 [npm]: https://docs.npmjs.com/cli/install
 
@@ -63,10 +63,10 @@ the bound file.
 
 [author]: http://wooorm.com
 
-[vfile]: https://github.com/wooorm/vfile
+[vfile]: https://github.com/vfile/vfile
 
 [to-offset]: #locationtooffsetposition
 
 [to-position]: #locationtopositionoffset
 
-[position]: https://github.com/wooorm/unist#position
+[position]: https://github.com/syntax-tree/unist#position

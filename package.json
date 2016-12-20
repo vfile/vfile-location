@@ -10,8 +10,8 @@
     "marker",
     "control"
   ],
-  "repository": "https://github.com/wooorm/vfile-location",
-  "bugs": "https://github.com/wooorm/vfile-location/issues",
+  "repository": "https://github.com/vfile/vfile-location",
+  "bugs": "https://github.com/vfile/vfile-location/issues",
   "author": "Titus Wormer <tituswormer@gmail.com> (http://wooorm.com)",
   "contributors": [
     "Titus Wormer <tituswormer@gmail.com> (http://wooorm.com)"
