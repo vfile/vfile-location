@@ -10,7 +10,7 @@
     "marker",
     "control"
   ],
-  "repository": "https://github.com/vfile/vfile-location",
+  "repository": "vfile/vfile-location",
   "bugs": "https://github.com/vfile/vfile-location/issues",
   "author": "Titus Wormer <tituswormer@gmail.com> (http://wooorm.com)",
   "contributors": [
