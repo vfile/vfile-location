@@ -2,7 +2,7 @@
 
 var test = require('tape');
 var vfile = require('vfile');
-var vfileLocation = require('./');
+var vfileLocation = require('.');
 
 test('location()', function (t) {
   var location = vfileLocation('');
