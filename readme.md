@@ -14,12 +14,13 @@ npm install vfile-location
 ## Usage
 
 ```js
-var vfile = require('vfile');
-var vfileLocation = require('vfile-location');
-var location = vfileLocation(vfile('foo\nbar\nbaz'));
+var vfile = require('vfile')
+var vfileLocation = require('vfile-location')
 
-location.toOffset({line: 3, column: 3}); //=> 10
-location.toPosition(offset); //=> {line: 3, column: 3, offset: 10}
+var location = vfileLocation(vfile('foo\nbar\nbaz'))
+
+var offset = location.toOffset({line: 3, column: 3}) // => 10
+location.toPosition(offset) // => {line: 3, column: 3, offset: 10}
 ```
 
 ## API
