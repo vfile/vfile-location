@@ -1,6 +1,6 @@
 {
   "name": "vfile-location",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "description": "Convert between positions (line and column-based) and offsets (range-based) locations in a virtual file",
   "license": "MIT",
   "keywords": [
