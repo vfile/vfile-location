@@ -1,10 +1,10 @@
 language: node_js
 os:
-- windows
-- linux
+  - windows
+  - linux
 node_js:
-- lts/boron
-- node
+  - lts/dubnium
+  - node
 after_script: bash <(curl -s https://codecov.io/bash)
 deploy:
   provider: releases
@@ -12,7 +12,7 @@ deploy:
   api_key:
     secure: El66VNdj6acW4wnSQ8jX6UEQVsLz8g0uSUFRJfd5QSWlOdVZqg54BYRKiH+XVtb7uP1y7THLi5ZovTa+aFikWDDRb5ITyDpQobepcPiWwgu3jla1ocJFLgy2+TztKnLQzxUVRrQo2KI/gj8O7CBsWwNfqjjjWd5OEfbR6r3k7k5EfLPczSEtk8/QB188ImmIP55Gxe9RnNf2234s/qQi74fRaK3otWyw5ptMKB7DoyIceWxQ/AJugs7ZsjayYLW9XCFH42PBf39CMVj8nKWm0Br8Rl5wHNslFmMUfVa37JEtp7gDkKBre/U3WrdaYJDX9oJirq9YdDlv3RLRHvvxA0EkA3PFYiMwySXyO2tzBMzWDFmdEaYm6mDeZDJGE4QSFDcG58+m4cPOGqgibOkyJdgbXEFmjlgKyTv88BW2kI9sxuuKiSQuG6PEvN0x5Xvy0Lv087luxbgSQXrCbrK0XrpSBnaOWiNprE4yS30sRfGWmaCN/Nu67apAL9Kvsn5shVFfdxJqv+CFPlFSK8rbioWW7ohaRd1ftdBlo8Bw0KdXKtpQebqksAhCeXLJaBZDc6XP6fSlmTIlItRyrqZTnub0EXWeptx1/cfSlIg5pAPIxCNK9sJwdeDKKIKbYCWweDzOSLy19WHtz8yTOi6F6ilJp3rFuDrXUnj7zblwsmU=
   file:
-    - "vfile-location.js"
-    - "vfile-location.min.js"
+    - 'vfile-location.js'
+    - 'vfile-location.min.js'
   on:
     tags: true
