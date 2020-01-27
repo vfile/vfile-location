@@ -18,15 +18,20 @@
   },
   "author": "Titus Wormer <tituswormer@gmail.com> (https://wooorm.com)",
   "contributors": [
-    "Titus Wormer <tituswormer@gmail.com> (https://wooorm.com)"
+    "Titus Wormer <tituswormer@gmail.com> (https://wooorm.com)",
+    "Christian Murphy <christian.murphy.42@gmail.com>"
   ],
   "files": [
-    "index.js"
+    "index.js",
+    "types/index.d.ts"
   ],
+  "types": "types/index.d.ts",
   "dependencies": {},
   "devDependencies": {
+    "@types/unist": "^2.0.0",
     "browserify": "^16.0.0",
-    "nyc": "^14.0.0",
+    "dtslint": "^2.0.0",
+    "nyc": "^15.0.0",
     "prettier": "^1.0.0",
     "remark-cli": "^7.0.0",
     "remark-preset-wooorm": "^6.0.0",
@@ -36,13 +41,14 @@
     "xo": "^0.25.0"
   },
   "scripts": {
-    "format": "remark . -qfo && prettier --write \"**/*.js\" && xo --fix",
+    "format": "remark . -qfo && prettier --write \"**/*.{js,ts}\" && xo --fix",
     "build-bundle": "browserify . -s vfileLocation > vfile-location.js",
     "build-mangle": "browserify . -s vfileLocation -p tinyify > vfile-location.min.js",
     "build": "npm run build-bundle && npm run build-mangle",
     "test-api": "node test",
     "test-coverage": "nyc --reporter lcov tape test.js",
-    "test": "npm run format && npm run build && npm run test-coverage"
+    "test-types": "dtslint types",
+    "test": "npm run format && npm run build && npm run test-coverage && npm run test-types"
   },
   "nyc": {
     "check-coverage": true,
