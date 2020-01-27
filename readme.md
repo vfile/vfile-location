@@ -19,7 +19,7 @@ locations in a [virtual file][vfile].
 npm install vfile-location
 ```
 
-## Usage
+## Use
 
 ```js
 var vfile = require('vfile')
@@ -57,7 +57,7 @@ get started.
 See [`support.md`][support] for ways to get help.
 
 This project has a [Code of Conduct][coc].
-By interacting with this repository, organisation, or community you agree to
+By interacting with this repository, organization, or community you agree to
 abide by its terms.
 
 ## License
