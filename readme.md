@@ -56,7 +56,7 @@ See [`contributing.md`][contributing] in [`vfile/.github`][health] for ways to
 get started.
 See [`support.md`][support] for ways to get help.
 
-This project has a [Code of Conduct][coc].
+This project has a [code of conduct][coc].
 By interacting with this repository, organization, or community you agree to
 abide by its terms.
 
