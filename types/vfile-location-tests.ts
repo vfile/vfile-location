@@ -1,4 +1,4 @@
-import * as vfileLocation from 'vfile-location'
+import vfileLocation = require('vfile-location')
 import * as vfile from 'vfile'
 
 // $ExpectError
