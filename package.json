@@ -1,14 +1,18 @@
 {
   "name": "vfile-location",
   "version": "3.0.0",
-  "description": "Convert between positions (line and column-based) and offsets (range-based) locations in a virtual file",
+  "description": "vfile utility to convert between positional (line and column-based) and offset (range-based) locations",
   "license": "MIT",
   "keywords": [
-    "remark",
-    "comment",
-    "message",
-    "marker",
-    "control"
+    "vfile",
+    "vfile-util",
+    "util",
+    "utility",
+    "virtual",
+    "file",
+    "location",
+    "position",
+    "offset"
   ],
   "repository": "vfile/vfile-location",
   "bugs": "https://github.com/vfile/vfile-location/issues",
