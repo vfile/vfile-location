@@ -4,7 +4,7 @@ var test = require('tape')
 var vfile = require('vfile')
 var vfileLocation = require('.')
 
-test('location()', function(t) {
+test('location()', function (t) {
   var location = vfileLocation('')
 
   t.equals(
@@ -33,7 +33,7 @@ test('location()', function(t) {
     'should expose `toPosition` for `file`'
   )
 
-  t.test('location.toOffset(position)', function(st) {
+  t.test('location.toOffset(position)', function (st) {
     var location = vfileLocation('foo\nbar\nbaz')
 
     st.equals(location.toOffset({}), -1, 'should return `-1` for invalid input')
@@ -65,7 +65,7 @@ test('location()', function(t) {
     st.end()
   })
 
-  t.test('location.toPosition(offset)', function(st) {
+  t.test('location.toPosition(offset)', function (st) {
     var location = vfileLocation('foo\nbar\nbaz')
 
     st.deepEquals(

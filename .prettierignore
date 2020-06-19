@@ -1,3 +1,5 @@
 coverage/
 vfile-location.js
 vfile-location.min.js
+*.json
+*.md
