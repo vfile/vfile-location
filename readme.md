@@ -8,7 +8,7 @@
 [![Backers][backers-badge]][collective]
 [![Chat][chat-badge]][chat]
 
-Convert between positions (line and column-based) and offsets (range-based)
+Convert between positional (line and column-based) and offsets (range-based)
 locations in a [virtual file][vfile].
 
 ## Install
@@ -28,7 +28,7 @@ var vfileLocation = require('vfile-location')
 var location = vfileLocation(vfile('foo\nbar\nbaz'))
 
 var offset = location.toOffset({line: 3, column: 3}) // => 10
-location.toPosition(offset) // => {line: 3, column: 3, offset: 10}
+location.toPoint(offset) // => {line: 3, column: 3, offset: 10}
 ```
 
 ## API
@@ -37,18 +37,17 @@ location.toPosition(offset) // => {line: 3, column: 3, offset: 10}
 
 Get transform functions for the given `doc` (`string`) or [`file`][vfile].
 
-Returns an object with [`toOffset`][to-offset] and [`toPosition`][to-position].
+Returns an object with [`toOffset`][to-offset] and [`toPoint`][to-point].
 
-### `location.toOffset(position)`
+### `location.toOffset(point)`
 
-Get the `offset` (`number`) for a line and column-based [`position`][position]
-in the bound file.
+Get the `offset` (`number`) for a line and column-based [`point`][point] in the
+bound file.
 Returns `-1` when given invalid or out of bounds input.
 
-### `location.toPosition(offset)`
+### `location.toPoint(offset)`
 
-Get the line and column-based [`position`][position] for `offset` in the bound
-file.
+Get the line and column-based [`point`][point] for `offset` in the bound file.
 
 ## Contribute
 
@@ -108,8 +107,8 @@ abide by its terms.
 
 [vfile]: https://github.com/vfile/vfile
 
-[to-offset]: #locationtooffsetposition
+[to-offset]: #locationtooffsetpoint
 
-[to-position]: #locationtopositionoffset
+[to-point]: #locationtopointoffset
 
-[position]: https://github.com/syntax-tree/unist#position
+[point]: https://github.com/syntax-tree/unist#point

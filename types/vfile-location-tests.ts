@@ -15,6 +15,6 @@ location.toOffset(12)
 // $ExpectError
 location.toOffset({line: 1, column: 1, offset: 1})
 
-location.toPosition(1)
+location.toPoint(1)
 // $ExpectError
-location.toPosition({line: 1, column: 1})
+location.toPoint({line: 1, column: 1})
