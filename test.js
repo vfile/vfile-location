@@ -16,7 +16,7 @@ test('location()', function (t) {
   t.equals(
     typeof location.toOffset,
     'function',
-    'should expose `toPosition` for `doc`'
+    'should expose `toPoint` for `doc`'
   )
 
   location = vfileLocation(vfile())
@@ -30,10 +30,10 @@ test('location()', function (t) {
   t.equals(
     typeof location.toOffset,
     'function',
-    'should expose `toPosition` for `file`'
+    'should expose `toPoint` for `file`'
   )
 
-  t.test('location.toOffset(position)', function (st) {
+  t.test('location.toOffset(point)', function (st) {
     var location = vfileLocation('foo\nbar\nbaz')
 
     st.equals(location.toOffset({}), -1, 'should return `-1` for invalid input')
@@ -65,31 +65,31 @@ test('location()', function (t) {
     st.end()
   })
 
-  t.test('location.toPosition(offset)', function (st) {
+  t.test('location.toPoint(offset)', function (st) {
     var location = vfileLocation('foo\nbar\nbaz')
 
     st.deepEquals(
-      location.toPosition(-1),
+      location.toPoint(-1),
       {},
       'should return an empty object for invalid input'
     )
 
     st.deepEquals(
-      location.toPosition(12),
+      location.toPoint(12),
       {},
       'should return an empty object for out of bounds input'
     )
 
     st.deepEquals(
-      location.toPosition(0),
+      location.toPoint(0),
       {line: 1, column: 1, offset: 0},
-      'should return a position (#1)'
+      'should return a point (#1)'
     )
 
     st.deepEquals(
-      location.toPosition(11),
+      location.toPoint(11),
       {line: 3, column: 4, offset: 11},
-      'should return a position (#2)'
+      'should return a point (#2)'
     )
 
     st.end()

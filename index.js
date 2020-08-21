@@ -4,20 +4,22 @@ module.exports = factory
 
 function factory(file) {
   var contents = indices(String(file))
+  var toPoint = offsetToPointFactory(contents)
 
   return {
-    toPosition: offsetToPositionFactory(contents),
-    toOffset: positionToOffsetFactory(contents)
+    toPoint: toPoint,
+    toPosition: toPoint,
+    toOffset: pointToOffsetFactory(contents)
   }
 }
 
-// Factory to get the line and column-based `position` for `offset` in the bound
+// Factory to get the line and column-based `point` for `offset` in the bound
 // indices.
-function offsetToPositionFactory(indices) {
-  return offsetToPosition
+function offsetToPointFactory(indices) {
+  return offsetToPoint
 
-  // Get the line and column-based `position` for `offset` in the bound indices.
-  function offsetToPosition(offset) {
+  // Get the line and column-based `point` for `offset` in the bound indices.
+  function offsetToPoint(offset) {
     var index = -1
     var length = indices.length
 
@@ -39,16 +41,16 @@ function offsetToPositionFactory(indices) {
   }
 }
 
-// Factory to get the `offset` for a line and column-based `position` in the
+// Factory to get the `offset` for a line and column-based `point` in the
 // bound indices.
-function positionToOffsetFactory(indices) {
-  return positionToOffset
+function pointToOffsetFactory(indices) {
+  return pointToOffset
 
-  // Get the `offset` for a line and column-based `position` in the bound
+  // Get the `offset` for a line and column-based `point` in the bound
   // indices.
-  function positionToOffset(position) {
-    var line = position && position.line
-    var column = position && position.column
+  function pointToOffset(point) {
+    var line = point && point.line
+    var column = point && point.column
 
     if (!isNaN(line) && !isNaN(column) && line - 1 in indices) {
       return (indices[line - 2] || 0) + column - 1 || 0
