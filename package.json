@@ -34,25 +34,25 @@
   "dependencies": {},
   "devDependencies": {
     "@types/unist": "^2.0.0",
-    "browserify": "^16.0.0",
-    "dtslint": "^3.0.0",
+    "browserify": "^17.0.0",
     "nyc": "^15.0.0",
     "prettier": "^2.0.0",
-    "remark-cli": "^8.0.0",
-    "remark-preset-wooorm": "^7.0.0",
+    "remark-cli": "^9.0.0",
+    "remark-preset-wooorm": "^8.0.0",
     "tape": "^5.0.0",
     "tinyify": "^3.0.0",
+    "tsd": "^0.13.1",
     "vfile": "^4.0.0",
-    "xo": "^0.33.0"
+    "xo": "^0.34.0"
   },
   "scripts": {
-    "format": "remark . -qfo && prettier . --write && xo --fix",
+    "format": "remark . -qfo && prettier . -w --loglevel warn && xo --fix",
     "build-bundle": "browserify . -s vfileLocation > vfile-location.js",
     "build-mangle": "browserify . -s vfileLocation -p tinyify > vfile-location.min.js",
     "build": "npm run build-bundle && npm run build-mangle",
     "test-api": "node test",
     "test-coverage": "nyc --reporter lcov tape test.js",
-    "test-types": "dtslint types",
+    "test-types": "tsd",
     "test": "npm run format && npm run build && npm run test-coverage && npm run test-types"
   },
   "nyc": {
