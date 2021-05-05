@@ -34,7 +34,11 @@ test('location()', function (t) {
   t.test('place.toOffset(point)', function (t) {
     var place = location('foo\nbar\nbaz')
 
-    t.equals(place.toOffset({}), -1, 'should return `-1` for invalid input')
+    t.equals(
+      place.toOffset({line: undefined, column: undefined}),
+      -1,
+      'should return `-1` for invalid input'
+    )
 
     t.equals(
       place.toOffset({line: 4, column: 2}),
@@ -68,13 +72,13 @@ test('location()', function (t) {
 
     t.deepEquals(
       place.toPoint(-1),
-      {},
+      {line: undefined, column: undefined, offset: undefined},
       'should return an empty object for invalid input'
     )
 
     t.deepEquals(
       place.toPoint(12),
-      {},
+      {line: undefined, column: undefined, offset: undefined},
       'should return an empty object for out of bounds input'
     )
 
@@ -98,7 +102,11 @@ test('location()', function (t) {
 
     t.deepEquals(
       [place.toPoint(3), place.toPoint(4), place.toPoint(5)],
-      [{line: 1, column: 4, offset: 3}, {}, {}],
+      [
+        {line: 1, column: 4, offset: 3},
+        {line: undefined, column: undefined, offset: undefined},
+        {line: undefined, column: undefined, offset: undefined}
+      ],
       'should return points for offsets around an EOF w/o EOLs'
     )
 
@@ -116,7 +124,11 @@ test('location()', function (t) {
 
     t.deepEquals(
       [place.toPoint(3), place.toPoint(4), place.toPoint(5)],
-      [{line: 1, column: 4, offset: 3}, {line: 2, column: 1, offset: 4}, {}],
+      [
+        {line: 1, column: 4, offset: 3},
+        {line: 2, column: 1, offset: 4},
+        {line: undefined, column: undefined, offset: undefined}
+      ],
       'should return points for offsets around an EOF EOL'
     )
 
