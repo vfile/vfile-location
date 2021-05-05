@@ -1,8 +1,4 @@
-'use strict'
-
-module.exports = factory
-
-function factory(file) {
+export function location(file) {
   var value = String(file)
   var indices = []
   var search = /\r?\n|\r/g
@@ -29,7 +25,7 @@ function factory(file) {
           return {
             line: index + 1,
             column: offset - (indices[index - 1] || 0) + 1,
-            offset: offset
+            offset
           }
         }
       }
@@ -45,7 +41,13 @@ function factory(file) {
     var column = point && point.column
     var offset
 
-    if (!isNaN(line) && !isNaN(column) && line - 1 in indices) {
+    if (
+      typeof line === 'number' &&
+      typeof column === 'number' &&
+      !Number.isNaN(line) &&
+      !Number.isNaN(column) &&
+      line - 1 in indices
+    ) {
       offset = (indices[line - 2] || 0) + column - 1 || 0
     }
 

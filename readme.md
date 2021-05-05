@@ -13,6 +13,9 @@ locations in a [virtual file][vfile].
 
 ## Install
 
+This package is [ESM only](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c):
+Node 12+ is needed to use it and it must be `import`ed instead of `require`d.
+
 [npm][]:
 
 ```sh
@@ -22,30 +25,33 @@ npm install vfile-location
 ## Use
 
 ```js
-var vfile = require('vfile')
-var vfileLocation = require('vfile-location')
+import {VFile} from 'vfile'
+import {location} from 'vfile-location'
 
-var location = vfileLocation(vfile('foo\nbar\nbaz'))
+var place = location(new VFile('foo\nbar\nbaz'))
 
-var offset = location.toOffset({line: 3, column: 3}) // => 10
-location.toPoint(offset) // => {line: 3, column: 3, offset: 10}
+var offset = place.toOffset({line: 3, column: 3}) // => 10
+place.toPoint(offset) // => {line: 3, column: 3, offset: 10}
 ```
 
 ## API
 
-### `location = vfileLocation(doc)`
+This package exports the following identifiers: `place`.
+There is no default export.
+
+### `place = location(doc)`
 
 Get transform functions for the given `doc` (`string`) or [`file`][vfile].
 
 Returns an object with [`toOffset`][to-offset] and [`toPoint`][to-point].
 
-### `location.toOffset(point)`
+### `place.toOffset(point)`
 
 Get the `offset` (`number`) for a line and column-based [`point`][point] in the
 bound file.
 Returns `-1` when given invalid or out of bounds input.
 
-### `location.toPoint(offset)`
+### `place.toPoint(offset)`
 
 Get the line and column-based [`point`][point] for `offset` in the bound file.
 
@@ -107,8 +113,8 @@ abide by its terms.
 
 [vfile]: https://github.com/vfile/vfile
 
-[to-offset]: #locationtooffsetpoint
+[to-offset]: #placetooffsetpoint
 
-[to-point]: #locationtopointoffset
+[to-point]: #placetopointoffset
 
 [point]: https://github.com/syntax-tree/unist#point
