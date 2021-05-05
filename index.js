@@ -7,7 +7,7 @@ function factory(file) {
   var indices = []
   var search = /\r?\n|\r/g
 
-  while (search.exec(value)) {
+  while (search.test(value)) {
     indices.push(search.lastIndex)
   }
 
