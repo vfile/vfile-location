@@ -1,6 +1,6 @@
 {
   "name": "vfile-location",
-  "version": "3.2.0",
+  "version": "4.0.0",
   "description": "vfile utility to convert between positional (line and column-based) and offset (range-based) locations",
   "license": "MIT",
   "keywords": [
