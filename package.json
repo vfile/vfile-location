@@ -35,7 +35,7 @@
     "index.js"
   ],
   "dependencies": {
-    "@types/unist": "^2.0.0"
+    "@types/unist": "^2.0.5"
   },
   "devDependencies": {
     "@types/tape": "^4.0.0",
