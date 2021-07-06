@@ -35,7 +35,8 @@
     "index.js"
   ],
   "dependencies": {
-    "@types/unist": "^2.0.0"
+    "@types/unist": "^2.0.0",
+    "vfile": "^5.0.0"
   },
   "devDependencies": {
     "@types/tape": "^4.0.0",
@@ -47,7 +48,6 @@
     "tape": "^5.0.0",
     "type-coverage": "^2.0.0",
     "typescript": "^4.0.0",
-    "vfile": "^5.0.0",
     "xo": "^0.39.0"
   },
   "scripts": {
