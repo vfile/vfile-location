@@ -13,10 +13,10 @@
  * @param {string|Uint8Array|VFile} file
  */
 export function location(file) {
-  var value = String(file)
-  /** @type {Array.<number>} */
-  var indices = []
-  var search = /\r?\n|\r/g
+  const value = String(file)
+  /** @type {Array<number>} */
+  const indices = []
+  const search = /\r?\n|\r/g
 
   while (search.test(value)) {
     indices.push(search.lastIndex)
@@ -35,7 +35,7 @@ export function location(file) {
    * @returns {FullPoint}
    */
   function toPoint(offset) {
-    var index = -1
+    let index = -1
 
     if (offset > -1 && offset < indices[indices.length - 1]) {
       while (++index < indices.length) {
@@ -60,10 +60,10 @@ export function location(file) {
    * @returns {Offset}
    */
   function toOffset(point) {
-    var line = point && point.line
-    var column = point && point.column
+    const line = point && point.line
+    const column = point && point.column
     /** @type {number} */
-    var offset
+    let offset
 
     if (
       typeof line === 'number' &&

@@ -3,7 +3,7 @@ import {VFile} from 'vfile'
 import {location} from './index.js'
 
 test('location()', function (t) {
-  var place = location('')
+  let place = location('')
 
   t.equals(
     typeof place.toOffset,
@@ -32,7 +32,7 @@ test('location()', function (t) {
   )
 
   t.test('place.toOffset(point)', function (t) {
-    var place = location('foo\nbar\nbaz')
+    const place = location('foo\nbar\nbaz')
 
     t.equals(
       place.toOffset({line: undefined, column: undefined}),
@@ -68,7 +68,7 @@ test('location()', function (t) {
   })
 
   t.test('place.toPoint(offset)', function (t) {
-    var place = location('foo\nbar\nbaz')
+    const place = location('foo\nbar\nbaz')
 
     t.deepEquals(
       place.toPoint(-1),
@@ -98,7 +98,7 @@ test('location()', function (t) {
   })
 
   t.test('other tests', function (t) {
-    var place = location('foo')
+    let place = location('foo')
 
     t.deepEquals(
       [place.toPoint(3), place.toPoint(4), place.toPoint(5)],
