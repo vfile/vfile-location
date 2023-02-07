@@ -1,10 +1,10 @@
 /**
- * @typedef {import('unist').Point} Point
  * @typedef {import('vfile').VFile} VFile
  *
- * @typedef {Pick<Point, 'line'|'column'>} PositionalPoint
- * @typedef {Required<Point>} FullPoint
- * @typedef {NonNullable<Point['offset']>} Offset
+ * @typedef Point
+ * @property {number | undefined} line
+ * @property {number | undefined} column
+ * @property {number | undefined} [offset]
  */
 
 /**
@@ -31,8 +31,8 @@ export function location(file) {
    * Returns a point with `undefined` values when given invalid or out of bounds
    * input.
    *
-   * @param {Offset} offset
-   * @returns {FullPoint}
+   * @param {number} offset
+   * @returns {Point}
    */
   function toPoint(offset) {
     let index = -1
@@ -56,14 +56,12 @@ export function location(file) {
    * Get the `offset` for a line and column-based `point` in the bound indices.
    * Returns `-1` when given invalid or out of bounds input.
    *
-   * @param {PositionalPoint} point
-   * @returns {Offset}
+   * @param {Point} point
+   * @returns {number}
    */
   function toOffset(point) {
     const line = point && point.line
     const column = point && point.column
-    /** @type {number} */
-    let offset
 
     if (
       typeof line === 'number' &&
@@ -72,9 +70,13 @@ export function location(file) {
       !Number.isNaN(column) &&
       line - 1 in indices
     ) {
-      offset = (indices[line - 2] || 0) + column - 1 || 0
+      const offset = (indices[line - 2] || 0) + column - 1 || 0
+
+      if (offset > -1 && offset < indices[indices.length - 1]) {
+        return offset
+      }
     }
 
-    return offset > -1 && offset < indices[indices.length - 1] ? offset : -1
+    return -1
   }
 }
