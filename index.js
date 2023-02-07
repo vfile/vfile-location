@@ -1,16 +1,56 @@
 /**
  * @typedef {import('vfile').VFile} VFile
- *
- * @typedef Point
- * @property {number | undefined} line
- * @property {number | undefined} column
- * @property {number | undefined} [offset]
+ * @typedef {import('vfile').Value} Value
  */
 
 /**
- * Get transform functions for the given `document`.
+ * @typedef Point
+ *   unist point, where `line` and `column` can be `undefined`.
+ * @property {number | undefined} line
+ *   Line.
+ * @property {number | undefined} column
+ *   Column.
+ * @property {number | undefined} [offset]
+ *   Offset.
  *
- * @param {string|Uint8Array|VFile} file
+ * @typedef PointLike
+ *   unist point, allowed as input.
+ * @property {number | null | undefined} [line]
+ *   Line.
+ * @property {number | null | undefined} [column]
+ *   Column.
+ * @property {number | null | undefined} [offset]
+ *   Offset.
+ *
+ * @callback ToPoint
+ *   Get a line/column-based `point` from `offset`.
+ * @param {number | null | undefined} [offset]
+ *   Something that should be an `offset.
+ * @returns {Point}
+ *   Point, line/column are undefined for invalid or out of bounds input.
+ *
+ * @callback ToOffset
+ *   Get an offset from a line/column-based `point`.
+ * @param {Point | null | undefined} [point]
+ *   Something that should be a `point.
+ * @returns {number}
+ *   Offset or `-1` for invalid or out of bounds input.
+ *
+ * @typedef Location
+ *   Index with accessors.
+ * @property {ToPoint} toPoint
+ *   Get a line/column-based `point` from `offset`.
+ * @property {ToOffset} toOffset
+ *   Get an offset from a line/column-based `point`.
+ */
+
+/**
+ * Index the given document so you can translate between line/column and offset
+ * based positional info.
+ *
+ * @param {VFile | Value} file
+ *   File to index.
+ * @returns {Location}
  */
 export function location(file) {
   const value = String(file)
@@ -26,23 +66,20 @@ export function location(file) {
 
   return {toPoint, toOffset}
 
-  /**
-   * Get the line and column-based `point` for `offset` in the bound indices.
-   * Returns a point with `undefined` values when given invalid or out of bounds
-   * input.
-   *
-   * @param {number} offset
-   * @returns {Point}
-   */
+  /** @type {ToPoint} */
   function toPoint(offset) {
     let index = -1
 
-    if (offset > -1 && offset < indices[indices.length - 1]) {
+    if (
+      typeof offset === 'number' &&
+      offset > -1 &&
+      offset < indices[indices.length - 1]
+    ) {
       while (++index < indices.length) {
         if (indices[index] > offset) {
           return {
             line: index + 1,
-            column: offset - (indices[index - 1] || 0) + 1,
+            column: offset - (index > 0 ? indices[index - 1] : 0) + 1,
             offset
           }
         }
@@ -52,13 +89,7 @@ export function location(file) {
     return {line: undefined, column: undefined, offset: undefined}
   }
 
-  /**
-   * Get the `offset` for a line and column-based `point` in the bound indices.
-   * Returns `-1` when given invalid or out of bounds input.
-   *
-   * @param {Point} point
-   * @returns {number}
-   */
+  /** @type {ToOffset} */
   function toOffset(point) {
     const line = point && point.line
     const column = point && point.column
