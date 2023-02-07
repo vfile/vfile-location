@@ -18,9 +18,8 @@ offsets (range-based) locations.
 *   [Install](#install)
 *   [Use](#use)
 *   [API](#api)
-    *   [`place = location(doc)`](#place--locationdoc)
-    *   [`place.toOffset(point)`](#placetooffsetpoint)
-    *   [`place.toPoint(offset)`](#placetopointoffset)
+    *   [`location(file)`](#locationfile)
+    *   [`Location`](#location)
 *   [Types](#types)
 *   [Compatibility](#compatibility)
 *   [Contribute](#contribute)
@@ -41,7 +40,7 @@ and still want to report it to users.
 ## Install
 
 This package is [ESM only][esm].
-In Node.js (version 12.20+, 14.14+, 16.0+, or 18.0+), install with [npm][]:
+In Node.js (version 14.14+ and 16.0+), install with [npm][]:
 
 ```sh
 npm install vfile-location
@@ -75,34 +74,44 @@ place.toPoint(offset) // => {line: 3, column: 3, offset: 10}
 
 ## API
 
-This package exports the identifier `location`.
+This package exports the identifier [`location`][api-location].
 There is no default export.
 
-### `place = location(doc)`
+### `location(file)`
 
-Index `doc` (`string` or [`VFile`][vfile]) and get functions for it.
-Returns an object with [`toOffset`][to-offset] and [`toPoint`][to-point].
+Index the given document so you can translate between line/column and offset
+based positional info.
 
-### `place.toOffset(point)`
+###### Parameters
 
-Get the `offset` (`number`) for a line and column-based [`Point`][point] in the
-bound file.
-Returns `-1` when given invalid or out of bounds input.
+*   `file` (`string`, `Buffer`, or [`VFile`][vfile])
+    — file to index
 
-### `place.toPoint(offset)`
+###### Returns
 
-Get the line and column-based [`Point`][point] for `offset` in the bound file.
+Accessors for index ([`Location`][api-location-map]).
+
+### `Location`
+
+Accessors for index (TypeScript type).
+
+###### Fields
+
+*   `toPoint` (`(offset?: number) => Point`)
+    — get a line/column-based [`Point`][point] from `offset`
+*   `toOffset` (`(point?: Point) => number`)
+    — get an offset from a line/column-based [`point`][point]
 
 ## Types
 
 This package is fully typed with [TypeScript][].
-It exports no additional types.
+It exports the additional type [`Location`][api-location-map].
 
 ## Compatibility
 
 Projects maintained by the unified collective are compatible with all maintained
 versions of Node.js.
-As of now, that is Node.js 12.20+, 14.14+, 16.0+, and 18.0+.
+As of now, that is Node.js 14.14+ and 16.0+.
 Our projects sometimes work with older versions, but this is not guaranteed.
 
 ## Contribute
@@ -169,8 +178,8 @@ abide by its terms.
 
 [vfile]: https://github.com/vfile/vfile
 
-[to-offset]: #placetooffsetpoint
-
-[to-point]: #placetopointoffset
-
 [point]: https://github.com/syntax-tree/unist#point
+
+[api-location]: #locationfile
+
+[api-location-map]: #location
