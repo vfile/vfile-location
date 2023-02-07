@@ -2,8 +2,15 @@ import assert from 'node:assert/strict'
 import test from 'node:test'
 import {VFile} from 'vfile'
 import {location} from './index.js'
+import * as mod from './index.js'
 
 test('location', function () {
+  assert.deepEqual(
+    Object.keys(mod).sort(),
+    ['location'],
+    'should expose the public api'
+  )
+
   let place = location('')
 
   assert.equal(
