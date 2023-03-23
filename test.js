@@ -44,6 +44,7 @@ test('toOffset(point)', function () {
   const place = location('foo\nbar\nbaz')
 
   assert.equal(
+    // @ts-expect-error We explicitly test invalid input.
     place.toOffset({line: undefined, column: undefined}),
     -1,
     'should return `-1` for invalid input'
@@ -79,13 +80,13 @@ test('toPoint(offset)', function () {
 
   assert.deepEqual(
     place.toPoint(-1),
-    {line: undefined, column: undefined, offset: undefined},
+    undefined,
     'should return an empty object for invalid input'
   )
 
   assert.deepEqual(
     place.toPoint(12),
-    {line: undefined, column: undefined, offset: undefined},
+    undefined,
     'should return an empty object for out of bounds input'
   )
 
@@ -107,11 +108,7 @@ test('other tests', function () {
 
   assert.deepEqual(
     [place.toPoint(3), place.toPoint(4), place.toPoint(5)],
-    [
-      {line: 1, column: 4, offset: 3},
-      {line: undefined, column: undefined, offset: undefined},
-      {line: undefined, column: undefined, offset: undefined}
-    ],
+    [{line: 1, column: 4, offset: 3}, undefined, undefined],
     'should return points for offsets around an EOF w/o EOLs'
   )
 
@@ -132,7 +129,7 @@ test('other tests', function () {
     [
       {line: 1, column: 4, offset: 3},
       {line: 2, column: 1, offset: 4},
-      {line: undefined, column: undefined, offset: undefined}
+      undefined
     ],
     'should return points for offsets around an EOF EOL'
   )
