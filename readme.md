@@ -111,10 +111,13 @@ It exports the additional type [`Location`][api-location-map].
 
 ## Compatibility
 
-Projects maintained by the unified collective are compatible with all maintained
-versions of Node.js.
-As of now, that is Node.js 16+.
-Our projects sometimes work with older versions, but this is not guaranteed.
+Projects maintained by the unified collective are compatible with maintained
+versions of Node.js (as of June 2023, that is Node.js 16+).
+
+When we cut a new major release, we drop support for unmaintained versions of
+Node.
+This means we try to keep the current release line, `vfile-location@^4`,
+compatible with Node.js 12.
 
 ## Contribute
 
