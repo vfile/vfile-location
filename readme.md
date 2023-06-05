@@ -97,9 +97,9 @@ Accessors for index (TypeScript type).
 
 ###### Fields
 
-*   `toPoint` (`(offset?: number) => Point`)
+*   `toPoint` (`(offset: number) => Point | undefined`)
     — get a line/column-based [`Point`][point] from `offset`
-*   `toOffset` (`(point?: Point) => number`)
+*   `toOffset` (`(point: Point) => number`)
     — get an offset from a line/column-based [`point`][point]
 
 ## Types
