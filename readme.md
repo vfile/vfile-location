@@ -49,14 +49,14 @@ npm install vfile-location
 In Deno with [`esm.sh`][esmsh]:
 
 ```js
-import {location} from 'https://esm.sh/vfile-location@4'
+import {location} from 'https://esm.sh/vfile-location@5'
 ```
 
 In browsers with [`esm.sh`][esmsh]:
 
 ```html
 <script type="module">
-  import {location} from 'https://esm.sh/vfile-location@4?bundle'
+  import {location} from 'https://esm.sh/vfile-location@5?bundle'
 </script>
 ```
 
@@ -116,8 +116,8 @@ versions of Node.js (as of June 2023, that is Node.js 16+).
 
 When we cut a new major release, we drop support for unmaintained versions of
 Node.
-This means we try to keep the current release line, `vfile-location@^4`,
-compatible with Node.js 12.
+This means we try to keep the current release line, `vfile-location@^5`,
+compatible with Node.js 16.
 
 ## Contribute
 
