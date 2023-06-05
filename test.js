@@ -1,11 +1,11 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
 import {VFile} from 'vfile'
-import {location} from './index.js'
+import {location} from 'vfile-location'
 
 test('location', async function () {
   assert.deepEqual(
-    Object.keys(await import('./index.js')).sort(),
+    Object.keys(await import('vfile-location')).sort(),
     ['location'],
     'should expose the public api'
   )
