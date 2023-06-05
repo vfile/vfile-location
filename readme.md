@@ -79,8 +79,8 @@ There is no default export.
 
 ### `location(file)`
 
-Index the given document so you can translate between line/column and offset
-based positional info.
+Create an index of the given document to translate between line/column and
+offset based positional info.
 
 ###### Parameters
 
@@ -98,9 +98,11 @@ Accessors for index (TypeScript type).
 ###### Fields
 
 *   `toPoint` (`(offset: number) => Point | undefined`)
-    — get a line/column-based [`Point`][point] from `offset`
+    — get the line/column based [`Point`][point] for `offset` in the bound
+    indices
 *   `toOffset` (`(point: Point) => number`)
-    — get an offset from a line/column-based [`point`][point]
+    — get the `offset` from a line/column based [`Point`][point] in the bound
+    indices
 
 ## Types
 
