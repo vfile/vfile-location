@@ -100,7 +100,7 @@ Accessors for index (TypeScript type).
 *   `toPoint` (`(offset: number) => Point | undefined`)
     — get the line/column based [`Point`][point] for `offset` in the bound
     indices
-*   `toOffset` (`(point: Point) => number`)
+*   `toOffset` (`(point: Point) => number | undefined`)
     — get the `offset` from a line/column based [`Point`][point] in the bound
     indices
 

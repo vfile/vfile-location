@@ -44,14 +44,14 @@ test('toOffset(point)', function () {
 
   assert.equal(
     place.toOffset({line: undefined, column: undefined}),
-    -1,
-    'should return `-1` for invalid input'
+    undefined,
+    'should return `undefined` for invalid input'
   )
 
   assert.equal(
     place.toOffset({line: 4, column: 2}),
-    -1,
-    'should return `-1` for out of bounds input'
+    undefined,
+    'should return `undefined` for out of bounds input'
   )
 
   assert.equal(
@@ -70,6 +70,12 @@ test('toOffset(point)', function () {
     place.toOffset({line: 3, column: 4}),
     11,
     'should return an offset (#3)'
+  )
+
+  assert.equal(
+    location('').toOffset({line: 1, column: 1}),
+    0,
+    'should support empty document'
   )
 })
 
@@ -99,6 +105,12 @@ test('toPoint(offset)', function () {
     {line: 3, column: 4, offset: 11},
     'should return a point (#2)'
   )
+
+  assert.deepEqual(
+    location('').toPoint(0),
+    {line: 1, column: 1, offset: 0},
+    'should support empty document'
+  )
 })
 
 test('other tests', function () {
@@ -116,7 +128,7 @@ test('other tests', function () {
       place.toOffset({line: 2, column: 1}),
       place.toOffset({line: 2, column: 2})
     ],
-    [3, -1, -1],
+    [3, undefined, undefined],
     'should return offsets for points around an EOF w/o EOLs'
   )
 
@@ -138,7 +150,7 @@ test('other tests', function () {
       place.toOffset({line: 2, column: 1}),
       place.toOffset({line: 2, column: 2})
     ],
-    [3, 4, -1],
+    [3, 4, undefined],
     'should return offsets for points around an EOF EOL'
   )
 
