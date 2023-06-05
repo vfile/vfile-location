@@ -40,7 +40,7 @@ and still want to report it to users.
 ## Install
 
 This package is [ESM only][esm].
-In Node.js (version 14.14+ and 16.0+), install with [npm][]:
+In Node.js (version 16+), install with [npm][]:
 
 ```sh
 npm install vfile-location
@@ -84,7 +84,7 @@ offset based positional info.
 
 ###### Parameters
 
-*   `file` (`string`, `Buffer`, or [`VFile`][vfile])
+*   `file` ([`VFile`][vfile], `Buffer`, or `string`)
     — file to index
 
 ###### Returns
@@ -113,7 +113,7 @@ It exports the additional type [`Location`][api-location-map].
 
 Projects maintained by the unified collective are compatible with all maintained
 versions of Node.js.
-As of now, that is Node.js 14.14+ and 16.0+.
+As of now, that is Node.js 16+.
 Our projects sometimes work with older versions, but this is not guaranteed.
 
 ## Contribute
@@ -144,9 +144,9 @@ abide by its terms.
 
 [downloads]: https://www.npmjs.com/package/vfile-location
 
-[size-badge]: https://img.shields.io/bundlephobia/minzip/vfile-location.svg
+[size-badge]: https://img.shields.io/badge/dynamic/json?label=minzipped%20size&query=$.size.compressedSize&url=https://deno.bundlejs.com/?q=vfile-location
 
-[size]: https://bundlephobia.com/result?p=vfile-location
+[size]: https://bundlejs.com/?q=vfile-location
 
 [sponsors-badge]: https://opencollective.com/unified/sponsors/badge.svg
 
