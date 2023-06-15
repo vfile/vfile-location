@@ -39,7 +39,7 @@
   ],
   "dependencies": {
     "@types/unist": "^2.0.0",
-    "vfile": "^5.0.0"
+    "vfile": "^6.0.0"
   },
   "devDependencies": {
     "@types/node": "^20.0.0",
