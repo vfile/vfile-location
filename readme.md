@@ -112,7 +112,7 @@ It exports the additional type [`Location`][api-location-map].
 ## Compatibility
 
 Projects maintained by the unified collective are compatible with maintained
-versions of Node.js (as of June 2023, that is Node.js 16+).
+versions of Node.js.
 
 When we cut a new major release, we drop support for unmaintained versions of
 Node.
