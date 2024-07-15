@@ -54,7 +54,7 @@ test('toOffset(point)', async function (t) {
     assert.equal(place.toOffset({line: 2, column: 4}), 7)
   })
 
-  await t.test('should return an offset (#3)', async function () {
+  await t.test('should return an offset (#4)', async function () {
     assert.equal(place.toOffset({line: 3, column: 4}), 11)
   })
 
@@ -261,6 +261,42 @@ test('mixed carriage returns, carriage return + line feeds, and line feeds', asy
         place.toOffset({line: 4, column: 1}) // `\r`
       ],
       [3, 4, 5, 7, 8, 9, 12, 13]
+    )
+  })
+})
+
+test('mixed line endings, *only* line endings', async function (t) {
+  const place = location('\r\r\n\n')
+
+  await t.test('should return points', async function () {
+    assert.deepEqual(
+      [
+        place.toPoint(0), // `\r` (alone)
+        place.toPoint(1), // `\r` (combined w/ next)
+        place.toPoint(2), // `\n` (combined w/ previous)
+        place.toPoint(3), // `\n` (alone)
+        place.toPoint(4) // EOF
+      ],
+      [
+        {line: 1, column: 1, offset: 0},
+        {line: 2, column: 1, offset: 1},
+        {line: 2, column: 2, offset: 2},
+        {line: 3, column: 1, offset: 3},
+        {line: 4, column: 1, offset: 4}
+      ]
+    )
+  })
+
+  await t.test('should return offsets', async function () {
+    assert.deepEqual(
+      [
+        place.toOffset({line: 1, column: 1}), // `\r` (alone)
+        place.toOffset({line: 2, column: 1}), // `\r` (combined w/ next)
+        place.toOffset({line: 2, column: 2}), // `\n` (combined w/ previous)
+        place.toOffset({line: 3, column: 1}), // `\n` (alone)
+        place.toOffset({line: 4, column: 1}) // EOF
+      ],
+      [0, 1, 2, 3, 4]
     )
   })
 })

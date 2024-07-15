@@ -108,6 +108,7 @@
     ],
     "prettier": true,
     "rules": {
+      "no-constant-condition": "off",
       "unicorn/prefer-at": "off"
     }
   }
