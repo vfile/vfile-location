@@ -18,8 +18,8 @@ offsets (range-based) locations.
 * [Install](#install)
 * [Use](#use)
 * [API](#api)
-  * [`location(file)`](#locationfile)
   * [`Location`](#location)
+  * [`location(file)`](#locationfile)
 * [Types](#types)
 * [Compatibility](#compatibility)
 * [Contribute](#contribute)
@@ -74,35 +74,36 @@ place.toPoint(offset) // => {line: 3, column: 3, offset: 10}
 
 ## API
 
-This package exports the identifier [`location`][api-location].
-There is no default export.
+### `Location`
+
+Accessors for index.
+
+###### Fields
+
+* `toOffset` (`(point?: PointLike | null | undefined) => number | undefined`)
+  — get the `offset` from a line/column based `Point` in the bound indices;
+  returns `undefined` when given out of bounds input
+* `toPoint` (`(offset?: number | null | undefined) => UnistPoint | undefined`)
+  — get the line/column based `Point` for `offset` in the bound indices;
+  returns `undefined` when given out of bounds input
 
 ### `location(file)`
 
 Create an index of the given document to translate between line/column and
 offset based positional info.
 
+Also implemented in Rust in [`wooorm/markdown-rs`][markdown-rs].
+
+[markdown-rs]: https://github.com/wooorm/markdown-rs/blob/main/src/util/location.rs
+
 ###### Parameters
 
-* `file` ([`VFile`][vfile], `Buffer`, or `string`)
+* `file` (`VFile | Value`)
   — file to index
 
 ###### Returns
 
-Accessors for index ([`Location`][api-location-map]).
-
-### `Location`
-
-Accessors for index (TypeScript type).
-
-###### Fields
-
-* `toPoint` (`(offset: number) => Point | undefined`)
-  — get the line/column based [`Point`][point] for `offset` in the bound
-  indices
-* `toOffset` (`(point: Point) => number | undefined`)
-  — get the `offset` from a line/column based [`Point`][point] in the bound
-  indices
+Accessors for index (`Location`).
 
 ## Types
 
@@ -182,9 +183,5 @@ abide by its terms.
 [author]: https://wooorm.com
 
 [vfile]: https://github.com/vfile/vfile
-
-[point]: https://github.com/syntax-tree/unist#point
-
-[api-location]: #locationfile
 
 [api-location-map]: #location

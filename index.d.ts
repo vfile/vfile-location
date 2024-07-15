@@ -7,17 +7,23 @@ export {location} from './lib/index.js'
  */
 export interface Location {
   /**
-   * Get the `offset` from a line/column based `Point` in the bound indices.
+   * Get the `offset` from a line/column based `Point` in the bound indices;
+   * returns `undefined` when given out of bounds input.
+   *
+   * @param point
+   *   Line/column based `Point`.
+   * @returns
+   *   Offset.
    */
   toOffset(point?: PointLike | null | undefined): number | undefined
   /**
-   * Get the line/column based `Point` for `offset` in the bound indices.
+   * Get the line/column based `Point` for `offset` in the bound indices;
+   * returns `undefined` when given out of bounds input.
    *
-   * Returns `undefined` when given out of bounds input.
-   *
-   * Also implemented in Rust in [`wooorm/markdown-rs`][markdown-rs].
-   *
-   * [markdown-rs]: https://github.com/wooorm/markdown-rs/blob/main/src/util/location.rs
+   * @param offset
+   *   Offset.
+   * @returns
+   *   `Point`.
    */
   toPoint(offset?: number | null | undefined): UnistPoint | undefined
 }
