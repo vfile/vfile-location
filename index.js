@@ -1,5 +1,2 @@
-/**
- * @typedef {import('./lib/index.js').Location} Location
- */
-
+// Note: types exposed from `index.d.ts`.
 export {location} from './lib/index.js'
