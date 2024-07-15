@@ -13,17 +13,17 @@ offsets (range-based) locations.
 
 ## Contents
 
-*   [What is this?](#what-is-this)
-*   [When should I use this?](#when-should-i-use-this)
-*   [Install](#install)
-*   [Use](#use)
-*   [API](#api)
-    *   [`location(file)`](#locationfile)
-    *   [`Location`](#location)
-*   [Types](#types)
-*   [Compatibility](#compatibility)
-*   [Contribute](#contribute)
-*   [License](#license)
+* [What is this?](#what-is-this)
+* [When should I use this?](#when-should-i-use-this)
+* [Install](#install)
+* [Use](#use)
+* [API](#api)
+  * [`location(file)`](#locationfile)
+  * [`Location`](#location)
+* [Types](#types)
+* [Compatibility](#compatibility)
+* [Contribute](#contribute)
+* [License](#license)
 
 ## What is this?
 
@@ -84,8 +84,8 @@ offset based positional info.
 
 ###### Parameters
 
-*   `file` ([`VFile`][vfile], `Buffer`, or `string`)
-    — file to index
+* `file` ([`VFile`][vfile], `Buffer`, or `string`)
+  — file to index
 
 ###### Returns
 
@@ -97,12 +97,12 @@ Accessors for index (TypeScript type).
 
 ###### Fields
 
-*   `toPoint` (`(offset: number) => Point | undefined`)
-    — get the line/column based [`Point`][point] for `offset` in the bound
-    indices
-*   `toOffset` (`(point: Point) => number | undefined`)
-    — get the `offset` from a line/column based [`Point`][point] in the bound
-    indices
+* `toPoint` (`(offset: number) => Point | undefined`)
+  — get the line/column based [`Point`][point] for `offset` in the bound
+  indices
+* `toOffset` (`(point: Point) => number | undefined`)
+  — get the `offset` from a line/column based [`Point`][point] in the bound
+  indices
 
 ## Types
 
