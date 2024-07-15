@@ -61,12 +61,19 @@ test('toOffset(point)', async function (t) {
   await t.test(
     'should return `undefined` for out of bounds input (#1)',
     async function () {
-      assert.equal(place.toOffset({line: 3, column: 5}), undefined)
+      assert.equal(place.toOffset({line: 2, column: 5}), undefined)
     }
   )
 
   await t.test(
     'should return `undefined` for out of bounds input (#2)',
+    async function () {
+      assert.equal(place.toOffset({line: 3, column: 5}), undefined)
+    }
+  )
+
+  await t.test(
+    'should return `undefined` for out of bounds input (#3)',
     async function () {
       assert.equal(place.toOffset({line: 4, column: 1}), undefined)
     }
