@@ -109,6 +109,28 @@ test('toPoint(offset)', async function (t) {
   await t.test('should support `0` for an empty document', async function () {
     assert.deepEqual(location('').toPoint(0), {line: 1, column: 1, offset: 0})
   })
+
+  await t.test('should return points in any order', async function () {
+    const place = location('a\nbc\n\ndef\r\ng')
+
+    assert.deepEqual(
+      [11, 0, 6, 2, 10, 5, 1, 4, 12, 3].map(function (offset) {
+        return place.toPoint(offset)
+      }),
+      [
+        {line: 5, column: 1, offset: 11},
+        {line: 1, column: 1, offset: 0},
+        {line: 4, column: 1, offset: 6},
+        {line: 2, column: 1, offset: 2},
+        {line: 4, column: 5, offset: 10},
+        {line: 3, column: 1, offset: 5},
+        {line: 1, column: 2, offset: 1},
+        {line: 2, column: 3, offset: 4},
+        {line: 5, column: 2, offset: 12},
+        {line: 2, column: 2, offset: 3}
+      ]
+    )
+  })
 })
 
 test('info surrounding EOF w/o EOL', async function (t) {
