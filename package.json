@@ -9,7 +9,7 @@
     "@types/unist": "^3.0.0",
     "vfile": "^6.0.0"
   },
-  "description": "vfile utility to convert between positional (line and column-based) and offset (range-based) locations",
+  "description": "vfile utility to convert between positional (line and column-based) and offsets (range-based) locations",
   "devDependencies": {
     "@types/node": "^26.0.0",
     "c8": "^12.0.0",
