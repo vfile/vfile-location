@@ -1,46 +1,15 @@
 {
-  "name": "vfile-location",
-  "version": "5.0.3",
-  "description": "vfile utility to convert between positional (line and column-based) and offset (range-based) locations",
-  "license": "MIT",
-  "keywords": [
-    "vfile",
-    "vfile-util",
-    "util",
-    "utility",
-    "virtual",
-    "file",
-    "location",
-    "point",
-    "position",
-    "offset"
-  ],
-  "repository": "vfile/vfile-location",
-  "bugs": "https://github.com/vfile/vfile-location/issues",
-  "funding": {
-    "type": "opencollective",
-    "url": "https://opencollective.com/unified"
-  },
   "author": "Titus Wormer <tituswormer@gmail.com> (https://wooorm.com)",
+  "bugs": "https://github.com/vfile/vfile-location/issues",
   "contributors": [
     "Titus Wormer <tituswormer@gmail.com> (https://wooorm.com)",
     "Christian Murphy <christian.murphy.42@gmail.com>"
-  ],
-  "sideEffects": false,
-  "type": "module",
-  "exports": {
-    "types": "./index.d.ts",
-    "default": "./index.js"
-  },
-  "files": [
-    "lib/",
-    "index.d.ts",
-    "index.js"
   ],
   "dependencies": {
     "@types/unist": "^3.0.0",
     "vfile": "^6.0.0"
   },
+  "description": "vfile utility to convert between positional (line and column-based) and offset (range-based) locations",
   "devDependencies": {
     "@types/node": "^26.0.0",
     "c8": "^12.0.0",
@@ -52,14 +21,33 @@
     "typescript": "^6.0.0",
     "xo": "^5.0.0"
   },
-  "scripts": {
-    "prepack": "npm run build && npm run format",
-    "build": "tsc --build --clean && tsc --build && type-coverage",
-    "format": "remark . -qfo && prettier . -w --log-level warn && xo --fix",
-    "test-api": "node --conditions development test.js",
-    "test-coverage": "c8 --100 --reporter lcov npm run test-api",
-    "test": "npm run build && npm run format && npm run test-coverage"
+  "exports": {
+    "types": "./index.d.ts",
+    "default": "./index.js"
   },
+  "files": [
+    "lib/",
+    "index.d.ts",
+    "index.js"
+  ],
+  "funding": {
+    "type": "opencollective",
+    "url": "https://opencollective.com/unified"
+  },
+  "keywords": [
+    "file",
+    "location",
+    "offset",
+    "point",
+    "position",
+    "utility",
+    "util",
+    "vfile-util",
+    "vfile",
+    "virtual"
+  ],
+  "license": "MIT",
+  "name": "vfile-location",
   "prettier": {
     "bracketSpacing": false,
     "semi": false,
@@ -74,10 +62,20 @@
       "remark-api"
     ]
   },
+  "repository": "vfile/vfile-location",
+  "scripts": {
+    "build": "tsc --build --clean && tsc --build && type-coverage",
+    "format": "remark --frail --output --quiet -- . && prettier --log-level warn --write -- . && xo --fix",
+    "prepack": "npm run build && npm run format",
+    "test-api": "node --conditions development test.js",
+    "test-coverage": "c8 --100 --reporter lcov -- npm run test-api",
+    "test": "npm run build && npm run format && npm run test-coverage"
+  },
+  "sideEffects": false,
   "typeCoverage": {
     "atLeast": 100,
-    "detail": true,
-    "ignoreCatch": true,
     "strict": true
-  }
+  },
+  "type": "module",
+  "version": "5.0.3"
 }
