@@ -136,52 +136,52 @@ abide by its terms.
 
 <!-- Definitions -->
 
-[build-badge]: https://github.com/vfile/vfile-location/workflows/main/badge.svg
+[api-location-map]: #location
 
-[build]: https://github.com/vfile/vfile-location/actions
-
-[coverage-badge]: https://img.shields.io/codecov/c/github/vfile/vfile-location.svg
-
-[coverage]: https://codecov.io/github/vfile/vfile-location
-
-[downloads-badge]: https://img.shields.io/npm/dm/vfile-location.svg
-
-[downloads]: https://www.npmjs.com/package/vfile-location
-
-[size-badge]: https://img.shields.io/badge/dynamic/json?label=minzipped%20size&query=$.size.compressedSize&url=https://deno.bundlejs.com/?q=vfile-location
-
-[size]: https://bundlejs.com/?q=vfile-location
-
-[sponsors-badge]: https://opencollective.com/unified/sponsors/badge.svg
+[author]: https://wooorm.com
 
 [backers-badge]: https://opencollective.com/unified/backers/badge.svg
 
-[collective]: https://opencollective.com/unified
+[build]: https://github.com/vfile/vfile-location/actions
 
-[chat-badge]: https://img.shields.io/badge/chat-discussions-success.svg
+[build-badge]: https://github.com/vfile/vfile-location/workflows/main/badge.svg
 
 [chat]: https://github.com/vfile/vfile/discussions
 
-[npm]: https://docs.npmjs.com/cli/install
+[chat-badge]: https://img.shields.io/badge/chat-discussions-success.svg
+
+[coc]: https://github.com/vfile/.github/blob/main/code-of-conduct.md
+
+[collective]: https://opencollective.com/unified
+
+[contributing]: https://github.com/vfile/.github/blob/main/contributing.md
+
+[coverage]: https://codecov.io/github/vfile/vfile-location
+
+[coverage-badge]: https://img.shields.io/codecov/c/github/vfile/vfile-location.svg
+
+[downloads]: https://www.npmjs.com/package/vfile-location
+
+[downloads-badge]: https://img.shields.io/npm/dm/vfile-location.svg
 
 [esm]: https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c
 
 [esmsh]: https://esm.sh
 
-[typescript]: https://www.typescriptlang.org
-
-[contributing]: https://github.com/vfile/.github/blob/main/contributing.md
-
-[support]: https://github.com/vfile/.github/blob/main/support.md
-
 [health]: https://github.com/vfile/.github
-
-[coc]: https://github.com/vfile/.github/blob/main/code-of-conduct.md
 
 [license]: license
 
-[author]: https://wooorm.com
+[npm]: https://docs.npmjs.com/cli/install
+
+[size]: https://bundlejs.com/?q=vfile-location
+
+[size-badge]: https://img.shields.io/badge/dynamic/json?label=minzipped%20size\&query=$.size.compressedSize\&url=https://deno.bundlejs.com/?q=vfile-location
+
+[sponsors-badge]: https://opencollective.com/unified/sponsors/badge.svg
+
+[support]: https://github.com/vfile/.github/blob/main/support.md
+
+[typescript]: https://www.typescriptlang.org
 
 [vfile]: https://github.com/vfile/vfile
-
-[api-location-map]: #location

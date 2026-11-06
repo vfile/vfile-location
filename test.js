@@ -88,7 +88,7 @@ test('toPoint(offset)', async function (t) {
   const place = location('foo\nbar\nbaz')
 
   await t.test('should return nothing for invalid input', async function () {
-    assert.deepEqual(place.toPoint(-1), undefined)
+    assert.equal(place.toPoint(-1), undefined)
   })
 
   await t.test('should return a point (#1)', async function () {
@@ -102,7 +102,7 @@ test('toPoint(offset)', async function (t) {
   await t.test(
     'should return `undefined` for out of bounds input',
     async function () {
-      assert.deepEqual(place.toPoint(12), undefined)
+      assert.equal(place.toPoint(12), undefined)
     }
   )
 
