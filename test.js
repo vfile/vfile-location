@@ -79,6 +79,34 @@ test('toOffset(point)', async function (t) {
     }
   )
 
+  await t.test(
+    'should return `undefined` for out of bounds input (#4)',
+    async function () {
+      assert.equal(place.toOffset({line: 1, column: 0}), undefined)
+    }
+  )
+
+  await t.test(
+    'should return `undefined` for out of bounds input (#5)',
+    async function () {
+      assert.equal(place.toOffset({line: 2, column: 0}), undefined)
+    }
+  )
+
+  await t.test(
+    'should return `undefined` for out of bounds input (#6)',
+    async function () {
+      assert.equal(place.toOffset({line: 2, column: -1}), undefined)
+    }
+  )
+
+  await t.test(
+    'should return `undefined` for invalid input (`NaN`)',
+    async function () {
+      assert.equal(place.toOffset({line: 1, column: NaN}), undefined)
+    }
+  )
+
   await t.test('should support `0` for an empty document', async function () {
     assert.equal(location('').toOffset({line: 1, column: 1}), 0)
   })
