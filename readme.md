@@ -1,15 +1,12 @@
 # vfile-location
 
-[![Build][build-badge]][build]
-[![Coverage][coverage-badge]][coverage]
-[![Downloads][downloads-badge]][downloads]
-[![Size][size-badge]][size]
-[![Sponsors][sponsors-badge]][collective]
-[![Backers][backers-badge]][collective]
-[![Chat][chat-badge]][chat]
+[![Build][badge-build-image]][badge-build-url]
+[![Coverage][badge-coverage-image]][badge-coverage-url]
+[![Downloads][badge-downloads-image]][badge-downloads-url]
+[![Size][badge-size-image]][badge-size-url]
 
-[vfile][] utility to convert between positional (line and column-based) and
-offsets (range-based) locations.
+[vfile][github-vfile] utility to convert between positional
+(line and column-based) and offsets (range-based) locations.
 
 ## Contents
 
@@ -39,8 +36,8 @@ and still want to report it to users.
 
 ## Install
 
-This package is [ESM only][esm].
-In Node.js (version 16+), install with [npm][]:
+This package is [ESM only][github-gist-esm].
+In Node.js (version 16+), install with [npm][npmjs-install]:
 
 ```sh
 npm install vfile-location
@@ -92,9 +89,9 @@ Accessors for index.
 Create an index of the given document to translate between line/column and
 offset based positional info.
 
-Also implemented in Rust in [`wooorm/markdown-rs`][markdown-rs].
+Also implemented in Rust in [`wooorm/markdown-rs`][github-markdown-rs].
 
-[markdown-rs]: https://github.com/wooorm/markdown-rs/blob/main/src/util/location.rs
+[github-markdown-rs]: https://github.com/wooorm/markdown-rs/blob/main/src/util/location.rs
 
 ###### Parameters
 
@@ -108,7 +105,7 @@ Accessors for index (`Location`).
 ## Types
 
 This package is fully typed with [TypeScript][].
-It exports the additional type [`Location`][api-location-map].
+It exports the additional type [`Location`][api-location].
 
 ## Compatibility
 
@@ -122,66 +119,59 @@ compatible with Node.js 16.
 
 ## Contribute
 
-See [`contributing.md`][contributing] in [`vfile/.github`][health] for ways to
-get started.
-See [`support.md`][support] for ways to get help.
+See
+[`contributing.md`][health-contributing]
+in
+[`vfile/.github`][health]
+for ways to get started.
+See [`support.md`][health-support] for ways to get help.
 
-This project has a [code of conduct][coc].
+This project has a [code of conduct][health-coc].
 By interacting with this repository, organization, or community you agree to
 abide by its terms.
 
 ## License
 
-[MIT][license] © [Titus Wormer][author]
+[MIT][file-license] © [Titus Wormer][wooorm]
 
 <!-- Definitions -->
 
-[api-location-map]: #location
+[api-location]: #location
 
-[author]: https://wooorm.com
+[badge-build-image]: https://github.com/vfile/vfile-location/workflows/main/badge.svg
 
-[backers-badge]: https://opencollective.com/unified/backers/badge.svg
+[badge-build-url]: https://github.com/vfile/vfile-location/actions
 
-[build]: https://github.com/vfile/vfile-location/actions
+[badge-coverage-image]: https://img.shields.io/codecov/c/github/vfile/vfile-location.svg
 
-[build-badge]: https://github.com/vfile/vfile-location/workflows/main/badge.svg
+[badge-coverage-url]: https://codecov.io/github/vfile/vfile-location
 
-[chat]: https://github.com/vfile/vfile/discussions
+[badge-downloads-image]: https://img.shields.io/npm/dm/vfile-location.svg
 
-[chat-badge]: https://img.shields.io/badge/chat-discussions-success.svg
+[badge-downloads-url]: https://www.npmjs.com/package/vfile-location
 
-[coc]: https://github.com/vfile/.github/blob/main/code-of-conduct.md
+[badge-size-image]: https://img.shields.io/bundlejs/size/vfile-location
 
-[collective]: https://opencollective.com/unified
-
-[contributing]: https://github.com/vfile/.github/blob/main/contributing.md
-
-[coverage]: https://codecov.io/github/vfile/vfile-location
-
-[coverage-badge]: https://img.shields.io/codecov/c/github/vfile/vfile-location.svg
-
-[downloads]: https://www.npmjs.com/package/vfile-location
-
-[downloads-badge]: https://img.shields.io/npm/dm/vfile-location.svg
-
-[esm]: https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c
+[badge-size-url]: https://bundlejs.com/?q=vfile-location
 
 [esmsh]: https://esm.sh
 
+[file-license]: license
+
+[github-gist-esm]: https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c
+
+[github-vfile]: https://github.com/vfile/vfile
+
 [health]: https://github.com/vfile/.github
 
-[license]: license
+[health-coc]: https://github.com/vfile/.github/blob/main/code-of-conduct.md
 
-[npm]: https://docs.npmjs.com/cli/install
+[health-contributing]: https://github.com/vfile/.github/blob/main/contributing.md
 
-[size]: https://bundlejs.com/?q=vfile-location
+[health-support]: https://github.com/vfile/.github/blob/main/support.md
 
-[size-badge]: https://img.shields.io/badge/dynamic/json?label=minzipped%20size\&query=$.size.compressedSize\&url=https://deno.bundlejs.com/?q=vfile-location
-
-[sponsors-badge]: https://opencollective.com/unified/sponsors/badge.svg
-
-[support]: https://github.com/vfile/.github/blob/main/support.md
+[npmjs-install]: https://docs.npmjs.com/cli/install
 
 [typescript]: https://www.typescriptlang.org
 
-[vfile]: https://github.com/vfile/vfile
+[wooorm]: https://wooorm.com
