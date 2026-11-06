@@ -29,7 +29,7 @@ file.
 
 ## When should I use this?
 
-This utility is useful when ASTs nodes don’t cut it.
+This utility is useful when AST nodes don’t cut it.
 For example, when you are making a lint rule that looks for dangerous
 characters in a file, which you accomplish by searching the raw file value,
 and still want to report it to users.
