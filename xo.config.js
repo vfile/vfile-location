@@ -13,6 +13,7 @@ const xoConfig = [
       'jsdoc/check-line-alignment': 'off',
       'jsdoc/informative-docs': 'off',
       'jsdoc/require-asterisk-prefix': 'off',
+      'no-shadow': 'off',
       'prefer-arrow-callback': 'off',
       'unicorn/no-array-sort': 'off',
       'unicorn/prefer-at': 'off',

@@ -110,6 +110,17 @@ test('toOffset(point)', async function (t) {
   await t.test('should support `0` for an empty document', async function () {
     assert.equal(location('').toOffset({line: 1, column: 1}), 0)
   })
+
+  await t.test('should return offsets in any order', async function () {
+    const place = location('a\nb\nc\nd')
+
+    assert.deepEqual(
+      [4, 1, 3, 2].map(function (line) {
+        return place.toOffset({line, column: 1})
+      }),
+      [6, 0, 4, 2]
+    )
+  })
 })
 
 test('toPoint(offset)', async function (t) {
@@ -136,6 +147,17 @@ test('toPoint(offset)', async function (t) {
 
   await t.test('should support `0` for an empty document', async function () {
     assert.deepEqual(location('').toPoint(0), {line: 1, column: 1, offset: 0})
+  })
+
+  await t.test('should return points in any order', async function () {
+    const place = location('a\nb\nc\nd')
+
+    assert.deepEqual(
+      [7, 0, 6, 1, 5, 2, 4, 3].map(function (offset) {
+        return place.toPoint(offset)?.line
+      }),
+      [4, 1, 4, 1, 3, 2, 3, 2]
+    )
   })
 })
 
