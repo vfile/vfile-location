@@ -43,12 +43,6 @@ In Node.js (version 16+), install with [npm][npmjs-install]:
 npm install vfile-location
 ```
 
-In Deno with [`esm.sh`][esmsh]:
-
-```js
-import {location} from 'https://esm.sh/vfile-location@5'
-```
-
 In browsers with [`esm.sh`][esmsh]:
 
 ```html
